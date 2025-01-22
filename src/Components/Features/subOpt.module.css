@@ -1,0 +1,81 @@
+.subOpt {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+.OptItem:hover {
+  background-color: rgb(200, 199, 199);
+}
+.OptItem {
+  padding: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.optionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.overlay {
+  left: 5%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.emoji {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.name {
+  flex-grow: 1;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.value {
+  min-width: 40px;
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #ddd;
+  border-radius: 2px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2196f3;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2196f3;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.adjustItem:last-child {
+  border-bottom: none;
+}

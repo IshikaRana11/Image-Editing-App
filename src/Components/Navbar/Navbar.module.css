@@ -1,0 +1,45 @@
+@import "../../../vars.css";
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgb(232, 230, 226);
+}
+.logo {
+  height: 80px;
+  width: 80px;
+  margin-left: 10px;
+  border-radius: 15px;
+}
+.btns {
+  display: flex;
+  gap: 5px;
+  margin-right: 15px;
+}
+.roundedBtn {
+  padding: 4px 12px; /* Adjust inner space for smaller buttons */
+  margin-top: 15px;
+  margin-right: 20px;
+  font-size: 14px; /* Reduce text size */
+  border-radius: 8px; /* Rounded corners */
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+}
+.logbtn {
+  font-style: normal;
+  font-weight: bolder;
+  border-color: aliceblue;
+}
+.signbtn {
+  background-color: rgb(117, 11, 216);
+  color: white;
+  font-weight: bolder;
+  border-color: antiquewhite;
+}
+.signbtn:hover {
+  background-color: rgb(127, 11, 189);
+}
+.logbtn:hover {
+  background-color: rgb(235, 231, 231);
+}

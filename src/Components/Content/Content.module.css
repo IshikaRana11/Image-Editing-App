@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  background-color: rgb(242, 234, 248);
+  /* background-color: rgb(215, 213, 213); */
+}
+.leftContainer {
+  width: 30%;
+}
+.leftimg {
+  width: auto;
+  height: 90vh;
+  border-radius: 10px;
+}
+.rightimg {
+  width: auto;
+  border-radius: 10px;
+  height: 100vh;
+}
+.centerContainer {
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 14px;
+  height: 8cm;
+  align-self: center;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+.centerContainer h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+.centerContainer p {
+  padding: 30px;
+  color: rgb(46, 45, 45);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 0.5cm;
+}
+.uploadButton {
+  height: 1.5cm;
+  border-radius: 10px;
+  width: 4.2cm;
+  background-color: rgb(117, 11, 216);
+
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+}
+.uploadButton:disabled {
+  background-color: gray;
+}
+.uploadButton:not(:disabled):hover {
+  background-color: rgb(169, 21, 152);
+}

@@ -1,0 +1,54 @@
+.subOpt {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+.OptItem {
+  padding: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.optionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.OptItem button {
+  border-radius: 8px;
+  padding: 8px;
+}
+.OptItem button:hover {
+  background-color: #adacac;
+}
+.overlay {
+  left: 5%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.emoji {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.name {
+  flex-grow: 1;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.value {
+  min-width: 40px;
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.adjustItem:last-child {
+  border-bottom: none;
+}

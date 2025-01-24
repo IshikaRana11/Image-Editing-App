@@ -1,7 +1,5 @@
 import styles from "./Content.module.css";
 import React, { useRef, useState } from "react";
-import axios from "axios";
-import ShowImg from "../ImageView/ShowImg";
 
 export default function FileUpload({ onFileSubmit }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -9,7 +7,7 @@ export default function FileUpload({ onFileSubmit }) {
   return (
     <div className={styles.imgUpload}>
       <button
-        onClick={() => onFileSubmit(selectedFile)}
+        onClick={async () => onFileSubmit(await selectedFile.arrayBuffer())}
         className={styles.uploadButton}
         disabled={selectedFile ? false : true}
       >

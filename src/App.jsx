@@ -8,7 +8,7 @@ function App() {
     <>
       <Navbar />
       {editFile ? (
-        <ShowImg file={editFile} onChangeFile={setEditFile} />
+        <ShowImg file={editFile} />
       ) : (
         <Content onFileSubmit={setEditFile} />
       )}

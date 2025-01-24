@@ -6,7 +6,12 @@ import Filters from "../Features/Filters";
 import Effects from "../Features/Effects";
 import OverlaysText from "../Features/OverlaysText";
 
-export default function EditOptions({ file }) {
+export default function EditOptions({
+  file1,
+  file2,
+  onChangeFile1,
+  onChangeFile2,
+}) {
   const [hoveredItems, setHoveredItems] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const options = [
@@ -20,15 +25,50 @@ export default function EditOptions({ file }) {
   function getCategoryId() {
     switch (selectedCategory) {
       case "adjust":
-        return <Adjust />;
+        return (
+          <Adjust
+            file1={file1}
+            file2={file2}
+            onChangeFile1={onChangeFile1}
+            onChangeFile2={onChangeFile2}
+          />
+        );
       case "transform":
-        return <Transform />;
+        return (
+          <Transform
+            file1={file1}
+            file2={file2}
+            onChangeFile1={onChangeFile1}
+            onChangeFile2={onChangeFile2}
+          />
+        );
       case "filters":
-        return <Filters />;
+        return (
+          <Filters
+            file1={file1}
+            file2={file2}
+            onChangeFile1={onChangeFile1}
+            onChangeFile2={onChangeFile2}
+          />
+        );
       case "effects":
-        return <Effects />;
+        return (
+          <Effects
+            file1={file1}
+            file2={file2}
+            onChangeFile1={onChangeFile1}
+            onChangeFile2={onChangeFile2}
+          />
+        );
       case "overlays":
-        return <OverlaysText />;
+        return (
+          <OverlaysText
+            file1={file1}
+            file2={file2}
+            onChangeFile1={onChangeFile1}
+            onChangeFile2={onChangeFile2}
+          />
+        );
       default:
         return [];
     }

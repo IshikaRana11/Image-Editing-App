@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import styles from "./subOpt.module.css";
+import { Jimp } from "jimp";
 
-const Adjust = () => {
-  const [adjustValues, setAdjustValues] = useState({
-    brightness: 0,
-    contrast: 0,
-    saturation: 0,
-    temperature: 0,
-    sharpness: 0,
-    exposure: 0,
-    highlights: 0,
-    shadows: 0,
-  });
+const Adjust = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
+  const [prevId, setPrevId] = useState(null);
   const adjust = [
     { id: "brightness", name: "Brightness", emoji: "☀" },
     { id: "contrast", name: "Contrast", emoji: "🌓" },
@@ -29,6 +21,40 @@ const Adjust = () => {
       [id]: parseFloat(e.target.value),
     }));
   };
+  async function editCurrImg(optionId, val) {
+    let image = null;
+    if (prevId != optionId) {
+      onChangeFile1(file2);
+      setPrevId(optionId);
+      image = await Jimp.fromBuffer(file2);
+    } else {
+      image = await Jimp.fromBuffer(file1);
+    }
+    switch (optionId) {
+      case "brightness":
+        image.brightness(val / 25);
+        break;
+      case "contrast":
+        image.contrast((val - 50) / 50);
+        break;
+      case "saturation":
+        image.color([{ apply: "saturate", params: [val] }]);
+        break;
+      case "temperature":
+        break;
+      case "sharpness":
+        break;
+      case "exposure":
+        break;
+      case "highlights":
+        break;
+      case "shadow":
+        image.color([{ apply: "tint", params: [val] }]);
+        break;
+    }
+    const buffer = await image.getBuffer("image/jpeg");
+    onChangeFile2(buffer);
+  }
   return (
     <div className={styles.container}>
       <ul className={styles.subOpt}>
@@ -39,11 +65,13 @@ const Adjust = () => {
 
             <input
               type="range"
-              min="-1"
-              max="1"
-              step="0.1"
-              value={adjustValues[option.id]}
-              onChange={(e) => handleSliderChange(option.id, e)}
+              min="0"
+              max="100"
+              step="5"
+              onChange={async (e) => {
+                const val = parseFloat(e.target.value);
+                editCurrImg(option.id, val);
+              }}
             />
           </li>
         ))}

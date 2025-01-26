@@ -16,6 +16,7 @@ const Effects = () => {
     { id: "glitch", name: "Glitch", emoji: "⚡" },
     { id: "noise", name: "Noise", emoji: "📺" },
     { id: "mirror", name: "Mirror", emoji: "🪞" },
+    { id: "pixelate", name: "Pixelate", emoji: "🌫" },
   ];
   const handleSliderChange = (id, e) => {
     setEffectValues((prev) => ({

@@ -12,6 +12,7 @@
   "dependencies": {
     "@adrianso/react-native-device-brightness": "^1.2.7",
     "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
     "classnames": "^2.5.1",
     "jimp": "^1.6.0",
     "react": "^18.3.1",

@@ -3,7 +3,7 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .OptItem:hover {
   background-color: rgb(200, 199, 199);

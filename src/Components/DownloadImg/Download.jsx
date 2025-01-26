@@ -5,8 +5,11 @@ const Download = ({ file }) => {
     try {
       if (file) {
         const downloadLink = document.createElement("a");
-        downloadLink.setAttribute("href", URL.createObjectURL(file));
-        downloadLink.setAttribute("download", file.name);
+        downloadLink.setAttribute(
+          "href",
+          URL.createObjectURL(new Blob([file], { type: "image/jpeg" }))
+        );
+        downloadLink.setAttribute("download", true);
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);

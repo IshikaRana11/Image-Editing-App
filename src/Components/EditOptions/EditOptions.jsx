@@ -7,17 +7,18 @@ import Effects from "../Features/Effects";
 import OverlaysText from "../Features/OverlaysText";
 
 export default function EditOptions({
+  file,
   file1,
   file2,
   onChangeFile1,
   onChangeFile2,
 }) {
   const [hoveredItems, setHoveredItems] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("adjust");
   const options = [
     { id: "adjust", name: "Adjust", emoji: "🎚️" },
-    { id: "transform", name: "Transform", emoji: "🔄" },
     { id: "filters", name: "Filter", emoji: "🎨" },
+    { id: "transform", name: "Transform", emoji: "🔄" },
     { id: "effects", name: "Effects", emoji: "✨" },
     { id: "overlays", name: "Text & Overlays", emoji: "📝" },
   ];
@@ -99,6 +100,14 @@ export default function EditOptions({
         ))}
       </ul>
       {selectedCategory && getCategoryId()}
+      <button
+        onClick={() => {
+          onChangeFile1(file);
+          onChangeFile2(file);
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 }

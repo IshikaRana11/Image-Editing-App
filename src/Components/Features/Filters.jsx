@@ -3,31 +3,37 @@ import styles from "./filter.module.css";
 import { Jimp } from "jimp";
 const Filters = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
   const filters = [
-    { id: "vintage", name: "Vintage", emoji: "📷" },
-    { id: "bw", name: "B&W", emoji: "⚫" },
-    { id: "sepia", name: "Sepia", emoji: "🟤" },
-    { id: "vivid", name: "Vivid", emoji: "🌈" },
-    { id: "drama", name: "Drama", emoji: "🎭" },
-    { id: "fade", name: "Fade", emoji: "🌫" },
+    { id: "sepia", name: "Sepia", emoji: "📷" },
+    { id: "dither", name: "Dither", emoji: "⚫" },
+    { id: "gaussianBlur", name: "GaussianBlur", emoji: "🟤" },
+    { id: "greyscale", name: "Greyscale", emoji: "🟤" },
+    { id: "embossed", name: "Embossed", emoji: "🌈" },
+    { id: "fisheye", name: "Fisheye", emoji: "🌫" },
+    { id: "invert", name: "Invert", emoji: "🌫" },
+    { id: "ghost", name: "Ghost", emoji: "🎭" },
   ];
-  async function showFilter(OptionId) {
+  async function showFilter(optionId) {
     let image = null;
     image = await Jimp.fromBuffer(file1);
-    switch (OptionId) {
-      case "vintage":
-        image.filter(Jimp.MIME_PNG, Jimp.FILTER_GRAYSCALE);
-        break;
-      case "bw":
-        break;
-      case "sepia":
-        break;
-      case "vivid":
-        break;
-      case "drama":
-        break;
-      case "fade":
-        break;
-    }
+    if (optionId === "fisheye") image.fisheye({ radius: 2 });
+    else if (optionId === "gaussianBlur") image.gaussian(1);
+    else if (optionId === "embossed")
+      image.convolute([
+        [-2, -1, 0],
+        [-1, 1, 1],
+        [0, 1, 2],
+      ]);
+    else if (optionId === "ghost") {
+      let image2 = image.clone();
+      image.composite(image2, 5, 0, {
+        mode: Jimp.BLEND_MULTIPLY,
+        opacitySource: 0.5,
+        opacityDest: 0.9,
+      });
+    } else if (optionId === "sepia") image.sepia();
+    else if (optionId === "dither") image.dither();
+    else if (optionId === "greyscale") image.greyscale();
+    else if (optionId === "invert") image.invert();
     const buffer = await image.getBuffer("image/jpeg");
     onChangeFile2(buffer);
   }

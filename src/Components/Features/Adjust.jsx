@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./subOpt.module.css";
 import { Jimp } from "jimp";
+import Form from "react-bootstrap/Form";
 
 const Adjust = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
   const [sliderValues, setSliderValues] = useState({
@@ -12,8 +13,6 @@ const Adjust = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
     red: 50,
     green: 50,
     blue: 50,
-    // lighten: 0,
-    // darken: 0,
   });
   const adjust = [
     { id: "brighten", name: "Brightness", emoji: "☀" },
@@ -35,7 +34,7 @@ const Adjust = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
     image.contrast((sliderValues.contrast - 50) / 50);
     image.color([{ apply: "tint", params: [sliderValues.tint / 5] }]);
     image.posterize(((sliderValues.posterize - 50) * -1 + 50) / 6);
-    const v = sliderValues.blur / 5;
+    const v = Math.round(sliderValues.blur / 5);
     if (v >= 1) image.blur(v);
 
     image.color([
@@ -56,10 +55,8 @@ const Adjust = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
         {adjust.map((option) => (
           <li key={option.id} className={styles.OptItem}>
             <span className={styles.emoji}>{option.emoji}</span>
-            <span className={styles.name}>{option.name}</span>
-
-            <input
-              className={styles.slider}
+            <Form.Label>{option.name}</Form.Label>
+            <Form.Range
               type="range"
               min="0"
               max="100"

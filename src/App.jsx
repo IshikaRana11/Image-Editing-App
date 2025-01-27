@@ -1,6 +1,7 @@
 import Content from "./Components/Content/Content";
 import Navbar from "./Components/Navbar/Navbar";
 import ShowImg from "./Components/ImageView/ShowImg";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 function App() {
   const [editFile, setEditFile] = useState(null);

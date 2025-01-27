@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   display: flex;
+
   flex-direction: column;
 }
 .OptItem {
@@ -18,6 +19,7 @@
 .OptItem button {
   border-radius: 8px;
   padding: 8px;
+  width: 300px;
 }
 .OptItem button:hover {
   background-color: #adacac;

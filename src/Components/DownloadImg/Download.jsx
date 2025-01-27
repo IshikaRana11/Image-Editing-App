@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Download.module.css";
+import Button from "react-bootstrap/Button";
 const Download = ({ file }) => {
   function downloadFile() {
     try {
@@ -23,11 +24,19 @@ const Download = ({ file }) => {
     }
   }
   return (
-    <div className={styles.dld}>
-      <button onClick={() => downloadFile()}>
-        <img src="/images/download.png" />
-      </button>
-    </div>
+    <Button
+      onClick={() => downloadFile()}
+      style={{
+        backgroundColor: "rgb(76, 147, 5) ",
+        color: "rgb(228, 226, 226)",
+        fontWeight: "bold",
+        width: "200px",
+      }}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = "rgb(58, 112, 5)")}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = "rgb(76, 147, 5)")}
+    >
+      Download
+    </Button>
   );
 };
 

@@ -1,8 +1,15 @@
 .container {
   display: flex;
 }
+
 .subContainer {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.imageContainer {
+  margin-bottom: 20px;
 }

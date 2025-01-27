@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./filter.module.css";
 import { Jimp } from "jimp";
 const Filters = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
+  const [selectedItm, setSelectedItem] = useState(null);
   const filters = [
     { id: "sepia", name: "Sepia", emoji: "📷" },
     { id: "dither", name: "Dither", emoji: "⚫" },
@@ -42,7 +43,15 @@ const Filters = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
       <ul className={styles.subOpt}>
         {filters.map((option) => (
           <li key={option.id} className={styles.OptItem}>
-            <button onClick={() => showFilter(option.id)}>
+            <button
+              onClick={() => {
+                showFilter(option.id);
+                setSelectedItem(option.id);
+              }}
+              style={
+                selectedItm == option.id ? { backgroundColor: "#9f9d9d" } : null
+              }
+            >
               <span className={styles.emoji}>{option.emoji}</span>
               <span className={styles.name}>{option.name}</span>
             </button>

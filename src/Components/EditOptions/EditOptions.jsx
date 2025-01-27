@@ -5,13 +5,14 @@ import Transform from "../Features/Transform";
 import Filters from "../Features/Filters";
 import Effects from "../Features/Effects";
 import OverlaysText from "../Features/OverlaysText";
+import Button from "react-bootstrap/Button";
 
 export default function EditOptions({
-  file,
   file1,
   file2,
   onChangeFile1,
   onChangeFile2,
+  ref,
 }) {
   const [hoveredItems, setHoveredItems] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("adjust");
@@ -32,6 +33,7 @@ export default function EditOptions({
             file2={file2}
             onChangeFile1={onChangeFile1}
             onChangeFile2={onChangeFile2}
+            ref={ref}
           />
         );
       case "transform":
@@ -78,7 +80,14 @@ export default function EditOptions({
     setSelectedCategory(id);
   }
   return (
-    <div>
+    <div
+      style={{
+        overflowY: "scroll",
+        height: "80vh",
+        margin: "20px",
+        padding: "20px",
+      }}
+    >
       <ul className={styles.imageList}>
         {options.map((option) => (
           <li
@@ -100,14 +109,6 @@ export default function EditOptions({
         ))}
       </ul>
       {selectedCategory && getCategoryId()}
-      <button
-        onClick={() => {
-          onChangeFile1(file);
-          onChangeFile2(file);
-        }}
-      >
-        Reset
-      </button>
     </div>
   );
 }

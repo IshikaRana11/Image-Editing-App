@@ -1,42 +1,40 @@
-import React, { useState } from "react";
-import styles from "./EditOptions.module.css";
-import Adjust from "../Features/Adjust";
-import Transform from "../Features/Transform";
-import Filters from "../Features/Filters";
-import Effects from "../Features/Effects";
-import OverlaysText from "../Features/OverlaysText";
-import Button from "react-bootstrap/Button";
+import React, { useState } from 'react';
+import styles from './EditOptions.module.css';
+import Adjust from '../Features/Adjust';
+import Transform from '../Features/Transform';
+import Filters from '../Features/Filters';
+import Effects from '../Features/Effects';
+import OverlaysText from '../Features/OverlaysText';
+import Button from 'react-bootstrap/Button';
 
 export default function EditOptions({
   file1,
   file2,
   onChangeFile1,
   onChangeFile2,
-  ref,
 }) {
   const [hoveredItems, setHoveredItems] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("adjust");
+  const [selectedCategory, setSelectedCategory] = useState('adjust');
   const options = [
-    { id: "adjust", name: "Adjust", emoji: "🎚️" },
-    { id: "filters", name: "Filter", emoji: "🎨" },
-    { id: "transform", name: "Transform", emoji: "🔄" },
-    { id: "effects", name: "Effects", emoji: "✨" },
-    { id: "overlays", name: "Text & Overlays", emoji: "📝" },
+    { id: 'adjust', name: 'Adjust', emoji: '🎚️' },
+    { id: 'filters', name: 'Filter', emoji: '🎨' },
+    { id: 'transform', name: 'Transform', emoji: '🔄' },
+    { id: 'effects', name: 'Effects', emoji: '✨' },
+    { id: 'overlays', name: 'Text & Overlays', emoji: '📝' },
   ];
 
   function getCategoryId() {
     switch (selectedCategory) {
-      case "adjust":
+      case 'adjust':
         return (
           <Adjust
             file1={file1}
             file2={file2}
             onChangeFile1={onChangeFile1}
             onChangeFile2={onChangeFile2}
-            ref={ref}
           />
         );
-      case "transform":
+      case 'transform':
         return (
           <Transform
             file1={file1}
@@ -45,7 +43,7 @@ export default function EditOptions({
             onChangeFile2={onChangeFile2}
           />
         );
-      case "filters":
+      case 'filters':
         return (
           <Filters
             file1={file1}
@@ -54,7 +52,7 @@ export default function EditOptions({
             onChangeFile2={onChangeFile2}
           />
         );
-      case "effects":
+      case 'effects':
         return (
           <Effects
             file1={file1}
@@ -63,7 +61,7 @@ export default function EditOptions({
             onChangeFile2={onChangeFile2}
           />
         );
-      case "overlays":
+      case 'overlays':
         return (
           <OverlaysText
             file1={file1}
@@ -82,14 +80,14 @@ export default function EditOptions({
   return (
     <div
       style={{
-        overflowY: "scroll",
-        height: "80vh",
-        margin: "20px",
-        padding: "20px",
+        overflowY: 'scroll',
+        height: '80vh',
+        margin: '20px',
+        padding: '20px',
       }}
     >
       <ul className={styles.imageList}>
-        {options.map((option) => (
+        {options.map(option => (
           <li
             key={option.id}
             className={styles.imageItem}

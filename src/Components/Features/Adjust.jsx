@@ -30,13 +30,13 @@ const Adjust = ({ file1, file2, onChangeFile1, onChangeFile2 }) => {
   async function editCurrImg() {
     const features = [];
     let image = file1.clone();
-    image.brightness(Math.floor(sliderValues.brighten / 50));
+    image.brightness(sliderValues.brighten / 50);
     image.contrast((sliderValues.contrast - 50) / 50);
     image.color([
       { apply: 'tint', params: [Math.floor(sliderValues.tint / 5)] },
     ]);
-    const p = Math.round((sliderValues.posterize - 50) * -1 + 50);
-    if (p < 15) image.posterize(p);
+    const p = ((sliderValues.posterize - 50) * -1 + 50) / 4 + 2;
+    image.posterize(p);
     const v = Math.round(sliderValues.blur / 5);
     if (v >= 1) image.blur(v);
 

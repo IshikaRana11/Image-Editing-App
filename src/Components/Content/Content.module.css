@@ -37,7 +37,7 @@
 .centerContainer p {
   padding: 30px;
   color: rgb(46, 45, 45);
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 0.5cm;
 }
 .uploadButton {
@@ -55,4 +55,7 @@
 }
 .uploadButton:not(:disabled):hover {
   background-color: rgb(169, 21, 152);
+}
+.imgUpload button {
+  margin-right: 20px;
 }

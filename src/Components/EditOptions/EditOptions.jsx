@@ -18,9 +18,9 @@ export default function EditOptions({
   const options = [
     { id: 'adjust', name: 'Adjust', emoji: '🎚️' },
     { id: 'filters', name: 'Filter', emoji: '🎨' },
-    { id: 'transform', name: 'Transform', emoji: '🔄' },
-    { id: 'effects', name: 'Effects', emoji: '✨' },
-    { id: 'overlays', name: 'Text & Overlays', emoji: '📝' },
+    // { id: 'transform', name: 'Transform', emoji: '🔄' },
+    // { id: 'effects', name: 'Effects', emoji: '✨' },
+    // { id: 'overlays', name: 'Text & Overlays', emoji: '📝' },
   ];
 
   function getCategoryId() {
@@ -34,15 +34,15 @@ export default function EditOptions({
             onChangeFile2={onChangeFile2}
           />
         );
-      case 'transform':
-        return (
-          <Transform
-            file1={file1}
-            file2={file2}
-            onChangeFile1={onChangeFile1}
-            onChangeFile2={onChangeFile2}
-          />
-        );
+      // case 'transform':
+      //   return (
+      //     <Transform
+      //       file1={file1}
+      //       file2={file2}
+      //       onChangeFile1={onChangeFile1}
+      //       onChangeFile2={onChangeFile2}
+      //     />
+      //   );
       case 'filters':
         return (
           <Filters
@@ -52,24 +52,24 @@ export default function EditOptions({
             onChangeFile2={onChangeFile2}
           />
         );
-      case 'effects':
-        return (
-          <Effects
-            file1={file1}
-            file2={file2}
-            onChangeFile1={onChangeFile1}
-            onChangeFile2={onChangeFile2}
-          />
-        );
-      case 'overlays':
-        return (
-          <OverlaysText
-            file1={file1}
-            file2={file2}
-            onChangeFile1={onChangeFile1}
-            onChangeFile2={onChangeFile2}
-          />
-        );
+      // case 'effects':
+      //   return (
+      //     <Effects
+      //       file1={file1}
+      //       file2={file2}
+      //       onChangeFile1={onChangeFile1}
+      //       onChangeFile2={onChangeFile2}
+      //     />
+      //   );
+      // case 'overlays':
+      //   return (
+      //     <OverlaysText
+      //       file1={file1}
+      //       file2={file2}
+      //       onChangeFile1={onChangeFile1}
+      //       onChangeFile2={onChangeFile2}
+      //     />
+      //   );
       default:
         return [];
     }
